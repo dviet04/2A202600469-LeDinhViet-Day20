@@ -25,6 +25,7 @@ class ResearchState(BaseModel):
     agent_results: list[AgentResult] = Field(default_factory=list)
     trace: list[dict[str, Any]] = Field(default_factory=list)
     errors: list[str] = Field(default_factory=list)
+    metrics: dict[str, Any] = Field(default_factory=dict)
 
     def record_route(self, route: str) -> None:
         self.route_history.append(route)

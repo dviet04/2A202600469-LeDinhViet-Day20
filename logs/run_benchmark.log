@@ -1,0 +1,1 @@
+2026-05-06 22:16:10,099 WARNING multi_agent_research_lab.graph.workflow Worker attempt 1 failed after 76.80s: timeout: worker exceeded timeout_seconds=60 (elapsed=76.80s)

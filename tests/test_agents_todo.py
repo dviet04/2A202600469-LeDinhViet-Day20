@@ -6,7 +6,9 @@ from multi_agent_research_lab.core.schemas import ResearchQuery
 from multi_agent_research_lab.core.state import ResearchState
 
 
-def test_supervisor_is_student_todo() -> None:
+def test_supervisor_routing_decision() -> None:
     state = ResearchState(request=ResearchQuery(query="Explain multi-agent systems"))
-    with pytest.raises(StudentTodoError):
-        SupervisorAgent().run(state)
+    # Supervisor should make a routing decision and record it in route_history
+    state = SupervisorAgent().run(state)
+    assert state.route_history, "Supervisor must record a routing decision"
+    assert state.route_history[-1] in {"researcher", "analyst", "writer", "done"}
